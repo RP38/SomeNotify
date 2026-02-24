@@ -13,8 +13,6 @@ from urllib.parse import urlparse, parse_qs
 
 from dotenv import load_dotenv
 
-from backends import get_backend
-
 if not Path(".env").exists():
     logging.basicConfig(level=logging.WARNING)
     logging.getLogger("sms-gw").warning(
@@ -22,6 +20,8 @@ if not Path(".env").exists():
     )
 
 load_dotenv()
+
+from backends import get_backend
 
 # ── Configuration ─────────────────────────────────────────────
 LISTEN_HOST = os.environ.get("LISTEN_HOST", "0.0.0.0")
