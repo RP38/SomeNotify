@@ -1,4 +1,4 @@
-# SomNotiFy
+# SomeNotify
 
 Passerelle HTTP qui redirige des notifications recues via des requetes HTTP vers des services de push tiers comme [Pushover](https://pushover.net/).
 
