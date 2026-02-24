@@ -6,17 +6,29 @@ Dispatche le message vers le(s) backend(s) de notification configuré(s).
 """
 
 import logging
+import os
 from http.server import HTTPServer, BaseHTTPRequestHandler
+from pathlib import Path
 from urllib.parse import urlparse, parse_qs
+
+from dotenv import load_dotenv
 
 from backends import get_backend
 
+if not Path(".env").exists():
+    logging.basicConfig(level=logging.WARNING)
+    logging.getLogger("sms-gw").warning(
+        "Fichier .env introuvable — copiez .env.example vers .env et renseignez vos identifiants."
+    )
+
+load_dotenv()
+
 # ── Configuration ─────────────────────────────────────────────
-LISTEN_HOST = "0.0.0.0"
-LISTEN_PORT = 80
+LISTEN_HOST = os.environ.get("LISTEN_HOST", "0.0.0.0")
+LISTEN_PORT = int(os.environ.get("LISTEN_PORT", "80"))
 
 # Backend à utiliser : "pushover", "telegram", "ntfy", "log"
-BACKEND = "log"
+BACKEND = os.environ.get("BACKEND", "log")
 # ──────────────────────────────────────────────────────────────
 
 logging.basicConfig(
