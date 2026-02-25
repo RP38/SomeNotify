@@ -8,6 +8,12 @@ Système de relais d'alertes conçu pour être utilisé comme extension des syst
 
 > **Compatibilité** : testé uniquement sur Somfy Protexiom.
 
+## Motivation
+
+Les centrales Somfy Protexiom permettent d'envoyer des alertes par SMS grâce à un module GSM utilisant le réseau 2G (EDGE). Avec l'extinction progressive du réseau 2G prévue courant 2026, ce module ne fonctionnera plus.
+
+SomeNotify offre une alternative : en passant par le module IP de la centrale et un Raspberry Pi sur le réseau local, les alertes sont redirigées vers un service de notification push. Cela permet de continuer à recevoir les alertes sur son téléphone sans avoir à remplacer l'ensemble du système d'alarme.
+
 ## Documentation
 
 | Document | Description |
