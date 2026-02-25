@@ -13,13 +13,16 @@ from urllib.parse import urlparse, parse_qs
 
 from dotenv import load_dotenv
 
-if not Path(".env").exists():
+_BASE_DIR = Path(__file__).resolve().parent
+_ENV_FILE = _BASE_DIR / ".env"
+
+if not _ENV_FILE.exists():
     logging.basicConfig(level=logging.WARNING)
     logging.getLogger("sms-gw").warning(
         "Fichier .env introuvable — copiez .env.example vers .env et renseignez vos identifiants."
     )
 
-load_dotenv()
+load_dotenv(_ENV_FILE)
 
 from backends import get_backend
 
