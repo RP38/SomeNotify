@@ -27,6 +27,8 @@ SomeNotify offre une alternative : en passant par le module IP de la centrale et
 
 ## Backends supportés
 
+> **Note** : actuellement, seul le backend Pushover est fonctionnel. L'utilisation de SomeNotify nécessite donc une licence Pushover à 5 $ (achat unique, à vie) par plateforme client (iOS / Android / Desktop). Pushover propose un essai gratuit de 30 jours.
+
 Un backend est un service tiers vers lequel SomeNotify redirige les alertes reçues. Backends disponibles :
 
 - **log** — affiche les alertes sur stdout (par défaut, utile pour tester)
