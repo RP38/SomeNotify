@@ -10,6 +10,14 @@ Système de relais d'alertes conçu pour être utilisé comme extension des syst
 
 Pour comprendre le fonctionnement en détail, voir [docs/explication.md](docs/explication.md).
 
+## Prérequis
+
+- Module IP installé sur la centrale Somfy
+- Raspberry Pi connecté en Ethernet au même réseau que la centrale
+- Distribution Linux avec systemd (ex. Raspberry Pi OS)
+- Python 3, git et python3-venv installés
+- Accès root (pour l'installation et l'écoute sur le port 80)
+
 ## Installation
 
 Lancez le script d'installation sur votre serveur Linux :
