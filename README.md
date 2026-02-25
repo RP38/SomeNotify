@@ -8,6 +8,8 @@ Système de relais d'alertes conçu pour être utilisé comme extension des syst
 
 > **Compatibilité** : testé uniquement sur Somfy Protexiom.
 
+> **Limitation** : SomeNotify repose entièrement sur le réseau local et la connexion internet. En cas de coupure de courant ou de panne internet, le système ne sera pas en mesure de transmettre les alertes vers les backends configurés. Un backend GSM (envoi de SMS sans passer par internet) pourrait être ajouté à l'avenir pour pallier ce problème. Côté alimentation, une batterie externe sur le Raspberry Pi permettrait de maintenir le service en cas de coupure de courant.
+
 ## Motivation
 
 Les centrales Somfy Protexiom permettent d'envoyer des alertes par SMS grâce à un module GSM utilisant le réseau 2G (EDGE). Avec l'extinction progressive du réseau 2G prévue courant 2026, ce module ne fonctionnera plus.
