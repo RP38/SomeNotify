@@ -20,8 +20,8 @@ SomeNotify offre une alternative : en passant par le module IP de la centrale et
 
 | Document | Description |
 |----------|-------------|
-| [Guide de configuration de la centrale](docs/guide.md) | Configuration réseau de la centrale Somfy pour rediriger les alertes |
 | [Installation et configuration](docs/installation.md) | Prérequis, installation et configuration du service SomeNotify |
+| [Guide de configuration de la centrale](docs/guide.md) | Configuration réseau de la centrale Somfy pour rediriger les alertes |
 | [Fonctionnement](docs/explication.md) | Explication détaillée du fonctionnement et format des requêtes |
 | [Développement](docs/development.md) | Environnement de développement et ajout de nouveaux backends |
 
