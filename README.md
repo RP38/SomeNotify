@@ -62,12 +62,17 @@ sudo journalctl -u somenotify -f     # Suivre les logs
 
 ## Backends supportés
 
+Un backend est un service tiers vers lequel SomeNotify redirige les alertes reçues. Backends disponibles :
+
 - **log** — affiche les alertes sur stdout (par défaut, utile pour tester)
-- **[Pushover](https://pushover.net/)** — envoie les alertes sur vos appareils
+- **[Pushover](https://pushover.net/)** — envoie les alertes sous forme de notifications push sur vos appareils
+- **[Free Mobile SMS](https://mobile.free.fr/account/mes-options/notifications-sms)** — envoie les alertes par SMS sur votre ligne Free via l'API de notification Free Mobile *(à venir)*
 
 ## Développement
 
-Voir [docs/development.md](docs/development.md) pour la mise en place de l'environnement de developpement et l'ajout de nouveaux backends.
+Voir [docs/development.md](docs/development.md) pour la mise en place de l'environnement de développement et l'ajout de nouveaux backends.
+
+Les pull requests ajoutant le support d'un nouveau backend sont les bienvenues. Vous pouvez également développer votre propre backend dans un fork du projet.
 
 ## Licence
 
