@@ -1,6 +1,12 @@
 # SomeNotify
 
-Système de relais d'alertes : reçoit des notifications via HTTP et les retransmet vers des services de push tiers comme [Pushover](https://pushover.net/).
+Système de relais d'alertes conçu pour être utilisé comme extension des systèmes d'alarme Somfy. Il permet de recevoir les notifications d'alerte sur un serveur privé (tel qu'un Raspberry Pi) et de les rediriger vers un service de push tiers comme [Pushover](https://pushover.net/).
+
+> **Avertissement** : ce projet est non officiel et n'est en aucun cas affilié, sponsorisé ou approuvé par Somfy. Tous les noms de marques et marques déposées appartiennent à leurs propriétaires respectifs.
+>
+> Ce logiciel est fourni « TEL QUEL », sans aucune garantie. Vous êtes seul responsable de son installation, de sa configuration et de son utilisation, y compris de la sécurisation de votre réseau et de vos systèmes. Utilisez-le uniquement sur des appareils qui vous appartiennent et des réseaux que vous administrez.
+
+> **Compatibilité** : testé uniquement sur Somfy Protexiom.
 
 Pour comprendre le fonctionnement en détail, voir [docs/explication.md](docs/explication.md).
 
