@@ -2,6 +2,7 @@
 
 ## Prérequis
 
+- Centrale Somfy Protexiom avec support du DNS personnalisé (vérifiez sur votre modèle avant de commencer — cette fonctionnalité semble non disponible sur les dernières versions. Une version compatible avec les centrales sans DNS personnalisé est prévue.)
 - Module IP installé sur la centrale Somfy
 - Raspberry Pi connecté en Ethernet au même réseau que la centrale
 - Distribution Linux avec systemd (ex. Raspberry Pi OS)
