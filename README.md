@@ -1,48 +1,68 @@
 # SomeNotify
 
-Passerelle HTTP qui redirige des notifications recues via des requetes HTTP vers des services de push tiers comme [Pushover](https://pushover.net/).
+Système de relais d'alertes : reçoit des notifications via HTTP et les retransmet vers des services de push tiers comme [Pushover](https://pushover.net/).
 
-## Fonctionnement
-
-Le serveur recoit une requete GET et transmet la notification au service de push configure :
-
-```
-GET /http.php?email=x&pass=y&numero=z&message=txt
-```
-
-| Parametre | Description                          |
-|-----------|--------------------------------------|
-| `email`   | Email du compte du service de push   |
-| `pass`    | Mot de passe du compte               |
-| `numero`  | Numero de telephone du destinataire  |
-| `message` | Contenu de la notification           |
+Pour comprendre le fonctionnement en détail, voir [docs/explication.md](docs/explication.md).
 
 ## Installation
 
-```bash
-pip install -r requirements.txt
-cp .env.example .env
-```
-
-Ouvrez `.env` et renseignez vos identifiants (token Pushover, etc.) puis lancez le serveur :
+Lancez le script d'installation sur votre serveur Linux :
 
 ```bash
-python3 server.py
+curl -fsSL https://raw.githubusercontent.com/RP38/SomeNotify/main/scripts/install.sh | sudo bash
 ```
+
+Le script effectue les actions suivantes :
+- Clone le projet dans `/opt/somenotify`
+- Crée un utilisateur système dédié `somenotify`
+- Installe les dépendances Python dans un environnement virtuel isolé
+- Configure un service systemd
 
 ## Configuration
 
-Toute la configuration se fait dans le fichier `.env` :
+Éditez le fichier de configuration :
 
-| Variable           | Description                                | Defaut      |
-|--------------------|--------------------------------------------|-------------|
-| `BACKEND`          | Service de notification a utiliser         | `log`       |
-| `LISTEN_HOST`      | Adresse d'ecoute du serveur                | `0.0.0.0`   |
-| `LISTEN_PORT`      | Port d'ecoute du serveur                   | `80`        |
-| `PUSHOVER_TOKEN`   | Token de l'application Pushover            | —           |
-| `PUSHOVER_USER_KEY`| Cle utilisateur Pushover                   | —           |
+```bash
+sudo nano /opt/somenotify/.env
+```
 
-## Services supportes
+Renseignez votre backend et vos identifiants :
 
-- [Pushover](https://pushover.net/)
-- D'autres a venir...
+```ini
+BACKEND=pushover
+LISTEN_PORT=80
+
+PUSHOVER_TOKEN=votre_token
+PUSHOVER_USER_KEY=votre_clé_utilisateur
+```
+
+| Variable             | Description                              | Défaut    |
+|----------------------|------------------------------------------|-----------|
+| `BACKEND`            | Service de notification à utiliser       | `log`     |
+| `LISTEN_HOST`        | Adresse d'écoute du serveur              | `0.0.0.0` |
+| `LISTEN_PORT`        | Port d'écoute du serveur                 | `80`      |
+| `PUSHOVER_TOKEN`     | Token de l'application Pushover          | —         |
+| `PUSHOVER_USER_KEY`  | Clé utilisateur Pushover                 | —         |
+
+## Gestion du service
+
+```bash
+sudo systemctl start somenotify      # Démarrer
+sudo systemctl stop somenotify       # Arrêter
+sudo systemctl restart somenotify    # Redémarrer après un changement de config
+sudo systemctl status somenotify     # Vérifier le statut
+sudo journalctl -u somenotify -f     # Suivre les logs
+```
+
+## Backends supportés
+
+- **log** — affiche les alertes sur stdout (par défaut, utile pour tester)
+- **[Pushover](https://pushover.net/)** — envoie les alertes sur vos appareils
+
+## Développement
+
+Voir [docs/development.md](docs/development.md) pour la mise en place de l'environnement de developpement et l'ajout de nouveaux backends.
+
+## Licence
+
+[MIT](LICENSE)
