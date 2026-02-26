@@ -4,7 +4,7 @@ Lorsqu'une alerte se déclenche et que la fonction « SMS par Internet » est ac
 
 ## Schéma explicatif
 
-![Schéma explicatif du fonctionnement de SomeNotify](schema_explication.jpeg)
+![Schéma explicatif du fonctionnement de SomeNotify](schema_explication.png)
 
 ## Format de la requête
 
